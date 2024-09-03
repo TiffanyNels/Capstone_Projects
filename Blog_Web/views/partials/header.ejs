@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Digital Dive</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styles/main.css">
+
+        <script src="https://kit.fontawesome.com/dae996b2f2.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <header>
+            <nav>
+              <a href="/">Home</a>
+              <a href="/about">About</a>
+              <a href="/contact">Contact</a>
+              <a href="/categories">Categories</a>
+            </nav>
+            <h1>Digital Dive</h1>
+            <form action="/search" method="get">
+              <input type="text" name="q" placeholder="Search...">
+              <button type="submit">Search</button>
+            </form>
+          </header>
+
+          <button id="menu-dropdown" class="dropdown-btn">Menu</button>
+
+          <div id="sidebar" class="sidebar">
+            <ul class="main-menu-list">
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li>
+                <button class="dropdown-btn">Categories
+                  <span class="caret">&#9660;</span>
+                </button>
+                <ul class="category-list">
+                  <li><a href="/category/programming">Programming</a></li>
+                  <li><a href="/category/technology">Technology</a></li>
+                  <li><a href="/category/tutorials">Tutorials</a></li>
+                  <li><a href="/category/reviews">Reviews</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <script>
+            document.getElementById('menu-dropdown').addEventListener('click', function() {
+              document.getElementById('sidebar').classList.toggle('active');
+            });
+          
+            const dropdowns = document.querySelectorAll('.dropdown-btn');
+            dropdowns.forEach(dropdown => {
+              dropdown.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                  dropdownContent.style.display = "none";
+                } else {
+                  dropdownContent.style.display = "block";
+                }
+              });
+            });
+          </script>
+    </body>
+</html>

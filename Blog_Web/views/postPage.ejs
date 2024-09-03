@@ -1,0 +1,11 @@
+<%- include("partials/header.ejs") %>
+
+<article>
+    <h1><%= post.title %></h1>
+    <p><em>By <%= post.author %> on <%= new Date(post.createdAt).toDateString() %></em></p>
+    <div>
+        <p><%= post.content %></p>
+    </div>
+</article>
+
+<%- include("partials/footer.ejs") %>

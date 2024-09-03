@@ -1,0 +1,22 @@
+<!-- categoryPage.ejs -->
+<%- include("partials/header.ejs") %>
+
+<section class="category">
+    <h2>Posts in <%= categoryName.charAt(0).toUpperCase() + categoryName.slice(1) %></h2>
+
+    <ul>
+        <% posts.forEach(post => { %>
+        <li>
+            <h3><a href="/post/<%= post._id %>"><%= post.title %></a></h3>
+            <p><%= post.content.substring(0, 100) %>...</p>
+            <p><em>By <%= post.author %> on <%= new Date(post.createdAt).toDateString() %></em></p>
+        </li>
+        <% }) %>
+    </ul>
+
+    <% if (posts.length === 0) { %>
+    <p>No posts found in this category.</p>
+    <% } %>
+</section>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,91 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+
+  <section class="featured-posts">
+    <h2>Featured Posts</h2>
+    <% featuredPosts.forEach(post => { %>
+      <article>
+        <h3><a href="/post/<%= post._id %>"><%= post.title %></a></h3>
+        <p><%= post.content.substring(0, 100) %>...</p>
+        <p><em>By <%= post.author %> on <%= new Date(post.createdAt).toDateString() %></em></p>
+        <a href="/post/<%= post._id %>">Read More</a>
+      </article>
+    <% }) %>
+  </section>
+
+
+  <h2>Share your knowledge...</h2>
+    <form action="/submit-post" method="POST">
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" required><br>
+  
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="author" required><br>
+  
+      <label for="content">Content:</label>
+      <textarea id="content" name="content" rows="10" required></textarea><br>
+  
+      <label for="category">Category:</label>
+      <select id="category" name="category" required>
+        <option value="">Select a category</option>
+        <option value="Programming">Programming</option>
+        <option value="Technology">Technology</option>
+        <option value="Tutorials">Tutorials</option>
+        <option value="Reviews">Reviews</option>
+      </select><br>
+  
+      <button type="submit">Submit Post</button>
+    </form>
+
+    <section class="post-feed">
+      <h2>Recent Posts</h2>
+      <% recentPosts.forEach(post => { %>
+        <article>
+          <h3><a href="/post/<%= post._id %>"><%= post.title %></a></h3>
+          <p><%= post.content.substring(0, 100) %>...</p>
+          <p><em>By <%= post.author %> on <%= new Date(post.createdAt).toDateString() %></em></p>
+          <a href="/post/<%= post._id %>/edit">Edit</a> | 
+          <form action="/post/<%= post._id %>?_method=DELETE" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
+            <button type="submit">Delete</button>
+          </form>
+        </article>
+      <% }) %>
+    </section>
+    
+  </main>
+
+  <script>
+    const featuredPosts = <%- JSON.stringify(featuredPosts) %>;
+  let currentIndex = 0;
+
+  function updateFeaturedPost() {
+    document.getElementById('post-title').innerText = featuredPosts[currentIndex].title;
+    document.getElementById('post-title').href = '/post/' + featuredPosts[currentIndex]._id;
+    document.getElementById('post-content').innerText = featuredPosts[currentIndex].content.substring(0, 100) + '...';
+    document.getElementById('post-author').innerText = 'By ' + featuredPosts[currentIndex].author + ' on ' + new Date(featuredPosts[currentIndex].createdAt).toDateString();
+    document.getElementById('read-more').href = '/post/' + featuredPosts[currentIndex]._id;
+  }
+
+  function nextPost() {
+    currentIndex = (currentIndex + 1) % featuredPosts.length;
+    updateFeaturedPost();
+  }
+
+  function prevPost() {
+    currentIndex = (currentIndex - 1 + featuredPosts.length) % featuredPosts.length;
+    updateFeaturedPost();
+  }
+
+  function confirmDelete() {
+    return confirm('Are you sure you want to delete this post? This action cannot be undone.');
+  }
+
+  document.getElementById('next-post').addEventListener('click', nextPost);
+  document.getElementById('prev-post').addEventListener('click', prevPost);
+
+  setInterval(nextPost, 10000);
+  </script>
+  
+
+<%- include("partials/footer.ejs") %>
