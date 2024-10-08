@@ -1,11 +1,21 @@
 <%- include("partials/header.ejs") %>
 
-<article>
-    <h1><%= post.title %></h1>
-    <p><em>By <%= post.author %> on <%= new Date(post.createdAt).toDateString() %></em></p>
-    <div>
-        <p><%= post.content %></p>
-    </div>
-</article>
+<main>
+    <section class="post-details">
+      <h1><%= post.title %></h1>
+      <p><%= post.content %></p>
+      <p><em>By <%= post.author %> on <%= new Date(post.createdAt).toDateString() %></em></p>
+      <p>Category: <a href="/category/<%= post.category %>"><%= post.category %></a></p>
+    </section>
+  
+    <section class="related-posts">
+      <h2>Related Posts in <%= post.category.charAt(0).toUpperCase() + post.category.slice(1) %></h2>
+      <ul>
+        <% relatedPosts.forEach(relatedPost => { %>
+          <li><a href="/post/<%= relatedPost._id %>"><%= relatedPost.title %></a></li>
+        <% }) %>
+      </ul>
+    </section>
+  </main>
 
 <%- include("partials/footer.ejs") %>

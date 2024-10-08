@@ -11,7 +11,7 @@
         <script src="https://kit.fontawesome.com/dae996b2f2.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        
+        <div class="content">
         <header>
             <nav>
               <a href="/">Home</a>
@@ -19,50 +19,73 @@
               <a href="/contact">Contact</a>
               <a href="/categories">Categories</a>
             </nav>
-            <h1>Digital Dive</h1>
+            <h1 id="header"><i class="fa-solid fa-user-astronaut"></i><a href="/">Digital Dive</a></h1>
             <form action="/search" method="get">
               <input type="text" name="q" placeholder="Search...">
               <button type="submit">Search</button>
             </form>
-          </header>
+        </header>
 
-          <button id="menu-dropdown" class="dropdown-btn">Menu</button>
+        <button id="menu-btn" class="menu-btn">Menu</button>
 
-          <div id="sidebar" class="sidebar">
+        <div id="sidebar" class="sidebar">
+            <div>
+                <button class="back-btn">
+                    <i class="fa-solid fa-angle-left"></i>
+                </button>
+            </div>
             <ul class="main-menu-list">
-              <li><a href="/about">About</a></li>
-              <li><a href="/contact">Contact</a></li>
-              <li>
-                <button class="dropdown-btn">Categories
-                  <span class="caret">&#9660;</span>
+                <div class="nav-btns">
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </div> 
+                <button class="categories-btn">Categories
+                    <span class="caret">&#9660;</span>
                 </button>
                 <ul class="category-list">
-                  <li><a href="/category/programming">Programming</a></li>
-                  <li><a href="/category/technology">Technology</a></li>
-                  <li><a href="/category/tutorials">Tutorials</a></li>
-                  <li><a href="/category/reviews">Reviews</a></li>
+                    <li><a href="/category/programming">Programming</a></li>
+                    <li><a href="/category/technology">Technology</a></li>
+                    <li><a href="/category/tutorials">Tutorials</a></li>
+                    <li><a href="/category/reviews">Reviews</a></li>
                 </ul>
-              </li>
             </ul>
-          </div>
+        </div>
+    </div>   
 
           <script>
-            document.getElementById('menu-dropdown').addEventListener('click', function() {
+
+
+            document.getElementById('menu-btn').addEventListener('click', function() {
               document.getElementById('sidebar').classList.toggle('active');
+              document.querySelector('.content').classList.toggle('squeezed');
             });
-          
-            const dropdowns = document.querySelectorAll('.dropdown-btn');
+      
+            const backButton = document.querySelector('.back-btn');
+            backButton.addEventListener('click', function() {
+              document.getElementById('sidebar').classList.remove('active');
+              document.querySelector('.content').classList.remove('squeezed');
+            });
+      
+            const dropdowns = document.querySelectorAll('.categories-btn');
             dropdowns.forEach(dropdown => {
               dropdown.addEventListener('click', function() {
                 this.classList.toggle('active');
                 const dropdownContent = this.nextElementSibling;
-                if (dropdownContent.style.display === "block") {
-                  dropdownContent.style.display = "none";
-                } else {
-                  dropdownContent.style.display = "block";
-                }
+                dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
               });
             });
+      
+            // document.addEventListener('click', function(event) {
+            //   const sidebar = document.getElementById('sidebar');
+            //   if (!sidebar.contains(event.target) && !event.target.matches('.categories-btn')) {
+            //     console.log("YES", event.target)
+            //     sidebar.classList.remove('active');
+            //     document.querySelectorAll('.category-list').forEach(dropdown => {
+            //       dropdown.style.display = 'none';
+            //     });
+            //   }
+            // });
           </script>
+          
     </body>
 </html>
