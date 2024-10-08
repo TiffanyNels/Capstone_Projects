@@ -20,6 +20,12 @@
       <option value="Reviews" <%= post.category === 'reviews' ? 'selected' : '' %>>Reviews</option>
     </select><br>
 
+    <label id="isFeatured">Feature this post?</label><br>
+    <label class="switch" name="isFeatured">
+    <input type="checkbox" name="isFeatured" <%= post && post.isFeatured ? 'checked' : '' %>>
+    <span class="slider"></span>
+    </label><br>
+
     <button type="submit">Update Post</button>
   </form>
 </main>
