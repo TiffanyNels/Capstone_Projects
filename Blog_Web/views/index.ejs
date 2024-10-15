@@ -3,7 +3,7 @@
 <main class="content">
 
   <!-- Featured Posts Section -->
-  <h2>Featured Posts</h2>
+  <h1>Featured Posts</h1>
   <section class="featured-post-container">
     <% featuredPosts.forEach((post, index) => { %>
       <div class="featured-post <%= index === 0 ? 'active' : '' %>">
@@ -16,16 +16,18 @@
   </section>  
 
   <!-- Post Submission Form -->
-  <h2>Share your knowledge...</h2>
+   <div class="submission-container">
+    <div class="submission-header">
+      <h1>Share your knowledge</h1>
+      </div>
+  <div class="submission-box">
   <form action="/submit-post" method="POST">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required><br>
+    <div class="input-labels">
+       <input class="form-input"  type="text" id="title" name="title" placeholder="Title" required><br>
+      <input class="form-input" type="text" id="author" name="author" placeholder="Author" required><br>
+    </div>
 
-    <label for="author">Author:</label>
-    <input type="text" id="author" name="author" required><br>
-
-    <label for="content">Content:</label>
-    <textarea id="content" name="content" rows="10" required></textarea><br>
+    <textarea class="text-box" name="content" rows="10" placeholder="Start typing..." required></textarea><br>
 
     <label for="category">Category:</label>
     <select id="category" name="category" required>
@@ -44,10 +46,12 @@
 
     <button type="submit">Submit Post</button>
   </form>
+</div>
+</div>
 
   <!-- Recent Posts Section -->
+  <h1>Recent Posts</h1>
   <section class="post-feed">
-    <h2>Recent Posts</h2>
     <% recentPosts.forEach(post => { %>
       <article>
         <h3><a href="/post/<%= post._id %>"><%= post.title %></a></h3>

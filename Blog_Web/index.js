@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import methodOverride from "method-override";
+import reload from "reload"
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -198,3 +199,5 @@ function getPostsForCategory(categoryName) {
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
+
+reload(app)

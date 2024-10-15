@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
-/* Body */
+/* Body Styling */
 * {
     font-family: "Questrial", sans-serif;
     font-style: normal;
@@ -9,8 +9,8 @@
 body {
   background: #FAF7F0;
   color: #333;
-  margin: 0;
-  padding: 0;
+  margin: 20px;
+  padding: 10px;
   display: block;
   min-height: 100vh;
   box-sizing: border-box;
@@ -23,11 +23,6 @@ body {
   box-sizing: border-box;
 }
 
-.sidebar.active ~ .container {
-  margin-left: 170px; 
-    width: calc(100% - 170px); 
-}
-
 
 a:link, a:visited {
     text-decoration: none;
@@ -38,42 +33,109 @@ a:hover, a:active {
     color: #4A4947;
 }
 
-/* Center the header content */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.header-title {
+  position: absolute; 
+  justify-content: space-between;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.header-nav {
+  flex-grow: 1;
+}
+
+.header-nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+
+/* Featured post animation */
+.featured-post-container {
+  position: relative;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.featured-post {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.featured-post.active {
+  opacity: 1;
+}
+
+ 
+/* Submission Form Styling */
+  .submission-container {
+    padding: 10px;
+    margin: 30px;
+  }
+
+  .submission-box {
+    padding-left: 100px;
+    }
+
+  .submission-header{
     padding: 10px;
   }
-  
-  /* Center the navigation */
-  nav {
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-  nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  /* Style for the search form */
-  form {
+
+  .input-labels {
     display: flex;
-    align-items: center;
+    /* padding-left: 100px; */
+    /* margin: 10px; */
+    gap: 50px;
   }
-  
-  form input[type="text"] {
-    padding: 5px;
+
+  .input-labels .form-input {
+    width: 300px;
+    height: 35px;
+    font-size: 15px;
+    padding-left: 15px;
+    border-radius: 30px;
+    color: #ccc;
     border: 1px solid #ccc;
-    border-radius: 15px;
+  }
+
+  .form-input:focus {
+    outline: #444 solid 0.5px;
+    color: #444;
+  }
+
+  .text-box {
+    width: 80%;
+    height: 150px;
+    font-size: 15px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    align-items: center;
+    resize: none;
+  }
+
+  .text-box:focus {
+    outline: #444 solid 0.5px;
+    color: #444;
   }
   
   form button {
     padding: 5px 10px;
-    background-color: #B17457;
+    background-color: #697565;
     color: black;
     border: none;
     border-radius: 15px;
@@ -87,7 +149,94 @@ header {
     background-color: #333;
   }
 
-  
+
+/* The switch - Checkbox Styling*/
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 2.3em;
+  height: 1.3em;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #4A4947;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.3em;
+  width: 1.3em;
+  inset: 0;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.switch input:checked + .slider {
+  background: #ECDFCC;
+}
+
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #ECDFCC;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1em);
+}
+
+
+/* Menu Button Styling */
+  .menu-btn { 
+    width: 60px;
+    height: 30px;
+    line-height: 10px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  #menu-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background-color: #697565;
+    color: black;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    transition: 0.2s linear
+  }
+
+  #menu-btn:hover {
+    color: white;
+    background-color: #333;
+  }
+
+
+   /* Sidebar Styling */
+   .sidebar.active ~ .container {
+    margin-left: 170px; 
+      width: calc(100% - 170px); 
+  }
+
   .sidebar.active {
     transform: translateX(0); 
   }
@@ -111,66 +260,6 @@ header {
 
 .sidebar .main-menu-list a:hover {
     color: #555;              
-}
-
-  
-  .menu-btn {
-    background-color: #B17457;
-    color: white;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-  }
-  
-  .caret {
-    float: right;
-  }
-  
-  /* Dropdown content */
-  .category-list {
-    list-style: none;
-    padding-left: 20px;
-    display: none;
-  }
-  
-  .menu-btn.active + .category-list {
-    display: block;
-  }
-  
-  body {
-    margin-left: 200px;
-  }
-  
-  #menu-btn {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background-color: #B17457;
-    color: black;
-    border: none;
-    padding: 10px;
-    border-radius: 20px;
-    transition: 0.2s linear
-  }
-
-  #menu-btn:hover {
-    color: white;
-    background-color: #333;
-  }
-  
-  @media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-    }
-
-    .sidebar.active ~ .content {
-        margin-left: 0; 
-        width: 100%; 
-    }
-
-    #menu-btn {
-        display: block;
-    }
 }
   
 .sidebar {
@@ -200,6 +289,22 @@ header {
         padding: 5px;
       }
 
+
+/* Catagories Button/List Styling */
+      .caret {
+        float: right;
+      }
+
+      .category-list {
+        list-style: none;
+        padding-left: 20px;
+        display: none;
+      }
+
+      .menu-btn.active + .category-list {
+        display: block;
+      }
+
       .categories-btn{
         top: 10px;
         left: 10px;
@@ -219,7 +324,9 @@ header {
       .categories.active + .category-list {
         display: block;
       }
-    
+
+
+/* Back Button Styling */
     .back-btn {
         width: 25px;
         height: 25px;
@@ -230,11 +337,8 @@ header {
         border: none;
         padding-bottom: 5px;
         margin-top: 15px;
-        border-radius: 50%;
         cursor: pointer;
-        display: flex;            
-        justify-content: center;  
-        align-items: center;
+        display: flex; 
         transition: 0.2s linear      
     } 
       
@@ -242,73 +346,33 @@ header {
         color: white;
       } 
 
+/* Footer Styling*/
+.footer {
+  position: absolute; 
+  justify-content: space-between;
+  margin: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
 
-/* The switch - Checkbox */
-.switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 2.3em;
-    height: 1.3em;
-  }
-  
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    inset: 0;
-    background: #9fccfa;
-    border-radius: 50px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 1.3em;
-    width: 1.3em;
-    inset: 0;
-    background-color: white;
-    border-radius: 50px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  
-  .switch input:checked + .slider {
-    background: #0974f1;
-  }
-  
-  .switch input:focus + .slider {
-    box-shadow: 0 0 1px #0974f1;
-  }
-  
-  .switch input:checked + .slider:before {
-    transform: translateX(1em);
+.social-media {
+  padding: 10px;
+  font-size: 15px;
+}
+
+/* Media Styling */
+@media (max-width: 768px) {
+  .sidebar {
+      width: 100%;
   }
 
-
-  /* Featured post animation */
-  .featured-post-container {
-    position: relative;
-    height: 200px;
-    width: 100%;
-    overflow: hidden;
+  .sidebar.active ~ .content {
+      margin-left: 0; 
+      width: 100%; 
   }
 
-  .featured-post {
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+  #menu-btn {
+      display: block;
   }
-
-  .featured-post.active {
-    opacity: 1;
-  }
+}

@@ -7,19 +7,20 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/styles/main.css">
-
         <script src="https://kit.fontawesome.com/dae996b2f2.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="content">
         <header>
-            <nav>
+            <nav class="header-nav">
               <a href="/">Home</a>
               <a href="/about">About</a>
               <a href="/contact">Contact</a>
               <a href="/categories">Categories</a>
             </nav>
-            <h1 id="header"><i class="fa-solid fa-user-astronaut"></i><a href="/">Digital Dive</a></h1>
+            <div class="header-title">
+              <h1 id="header"><i class="fa-solid fa-user-astronaut"></i><a href="/">Digital Dive</a></h1>
+          </div>
             <form action="/search" method="get">
               <input type="text" name="q" placeholder="Search...">
               <button type="submit">Search</button>
@@ -29,11 +30,9 @@
         <button id="menu-btn" class="menu-btn">Menu</button>
 
         <div id="sidebar" class="sidebar">
-            <div>
                 <button class="back-btn">
                     <i class="fa-solid fa-angle-left"></i>
                 </button>
-            </div>
             <ul class="main-menu-list">
                 <div class="nav-btns">
                     <li><a href="/about">About</a></li>
@@ -88,4 +87,5 @@
           </script>
           
     </body>
+    <script src="/reload/reload.js"></script>
 </html>
