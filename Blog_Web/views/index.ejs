@@ -29,8 +29,7 @@
 
     <textarea class="text-box" name="text-box" rows="20" placeholder="Start typing..." required></textarea><br>
 
-    <label for="category">Category:</label>
-    <select id="category" name="category" required>
+    <select class="category-dropdown" name="category" required>
       <option value="">Select a category</option>
       <option value="Programming">Programming</option>
       <option value="Technology">Technology</option>
@@ -38,11 +37,13 @@
       <option value="Reviews">Reviews</option>
     </select><br>
 
-    <label id="isFeatured">Feature this post?</label><br>
+    <div class="isFeatured-button">
+    <label class="isFeatured-label">Feature this post?</label><br>
     <label class="switch" name="isFeatured">
       <input type="checkbox" name="isFeatured">
       <span class="slider"></span>
     </label><br>
+  </div>
 
     <button type="submit">Submit Post</button>
   </form>
