@@ -130,18 +130,34 @@ header {
   .text-box {
     width: 80%;
     height: 150px;
-    font-size: 15px;
-    padding: 12px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    padding-top: 10px;
     box-sizing: border-box;
+    color: #333;
     border: 2px solid #ccc;
-    border-radius: 20px;
     align-items: center;
     background: transparent;
     resize: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .text-box::placeholder {
+    color: #B7B7B7; 
+    transition: color 0.3s ease;
   }
 
   .text-box:focus {
-    outline: #444 solid 0.5px;
+    border: 2px solid #444;
+    background: transparent;
+    outline: none;
+    border-left: none;
+    border-right: none;  
+  }
+
+  .text-box:focus::placeholder {
     color: #444;
   }
   
