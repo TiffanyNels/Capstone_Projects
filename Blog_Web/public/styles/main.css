@@ -94,6 +94,8 @@ header {
     padding: 10px;
   }
 
+
+  /* Input-box */
   .input-labels {
     display: block;
   }
@@ -127,6 +129,7 @@ header {
     color: #444;
   }
 
+  /* Textbox */
   .text-box {
     width: 80%;
     height: 150px;
@@ -160,14 +163,44 @@ header {
   .text-box:focus::placeholder {
     color: #444;
   }
+
+/* Category Button */
+.category-dropdown {
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  background-color: #697565;
+  color: black;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.2s linear;
+  border: 0;
+  outline: none;
+}
+
+.category-dropdown:hover {
+  border: 0;
+  outline: none;
+  color: white;
+  background-color: #333;
+}
+
+/* Toggle-switch */
+.isFeatured-button {
+  display: flex;
+  margin-bottom: 10px;
+  gap: 10px;
+}
   
+/* Form Submit Button */
   form button {
     padding: 5px 10px;
+    font-size: 15px;
     background-color: #697565;
     color: black;
     border: none;
     border-radius: 15px;
-    margin-left: 10px;
     cursor: pointer;
     transition: 0.2s linear;
   }
