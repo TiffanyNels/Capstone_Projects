@@ -83,7 +83,7 @@ header {
 /* Submission Form Styling */
   .submission-container {
     padding: 10px;
-    margin: 30px;
+    margin: 50px;
   }
 
   .submission-box {
@@ -164,33 +164,121 @@ header {
     color: #444;
   }
 
-/* Category Button */
-.category-dropdown {
-  padding: 5px;
-  margin-bottom: 10px;
-  font-size: 15px;
-  background-color: #697565;
-  color: black;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: 0.2s linear;
-  border: 0;
-  outline: none;
-}
-
-.category-dropdown:hover {
-  border: 0;
-  outline: none;
-  color: white;
-  background-color: #333;
-}
-
-/* Toggle-switch */
+  /* Toggle-switch */
 .isFeatured-button {
   display: flex;
+  font-size: 17px;
   margin-bottom: 10px;
+  margin-top: 20px;
   gap: 10px;
+}
+
+/* The switch - Checkbox Styling*/
+.switch {
+  font-size: 15px;
+  position: relative;
+  display: inline-block;
+  width: 2.3em;
+  height: 1.3em;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #B7B7B7;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.3em;
+  width: 1.3em;
+  inset: 0;
+  background-color: white;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.switch input:checked + .slider {
+  background: #697565;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1em);
+}
+
+
+/* Category Button Styling*/
+/* Dropdown container Styling**/
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.dropdown-button {
+  cursor: pointer;
+  font-size: 17px;
+  width: 100%;
+  border-radius: 0;
+  border: 0;
+  background: transparent;
+  color: #333;
+  padding-left: 0;
+  text-align: left;
+}
+
+.dropdown-button:hover {
+  background: transparent;
+  color: black;
+}
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  color: #333;
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.dropdown-options li {
+  border-radius: 20px;
+  border-top-left-radius: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-options li:hover {
+  background-color: #697565;
+  color: black;
+}
+
+.custom-dropdown.active .dropdown-options {
+  display: block;
+}
+
+/* Submit Button Styling */
+.submit-button-box {
+  
 }
   
 /* Form Submit Button */
@@ -209,59 +297,6 @@ header {
     color: white;
     background-color: #333;
   }
-
-
-/* The switch - Checkbox Styling*/
-.switch {
-  font-size: 17px;
-  position: relative;
-  display: inline-block;
-  width: 2.3em;
-  height: 1.3em;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  inset: 0;
-  background: #4A4947;
-  border-radius: 50px;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 1.3em;
-  width: 1.3em;
-  inset: 0;
-  background-color: white;
-  border-radius: 50px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.switch input:checked + .slider {
-  background: #ECDFCC;
-}
-
-.switch input:focus + .slider {
-  box-shadow: 0 0 1px #ECDFCC;
-}
-
-.switch input:checked + .slider:before {
-  transform: translateX(1em);
-}
-
 
 /* Menu Button Styling */
   .menu-btn { 
