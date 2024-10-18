@@ -278,7 +278,7 @@ header {
 
 /* Submit Button Styling */
 .submit-button-box {
-  
+  float: right;
 }
   
 /* Form Submit Button */
