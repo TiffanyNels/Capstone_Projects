@@ -171,6 +171,7 @@ header {
   margin-bottom: 10px;
   margin-top: 20px;
   gap: 10px;
+  /* background: #333; */
 }
 
 /* The switch - Checkbox Styling*/
@@ -222,63 +223,63 @@ header {
 
 /* Category Button Styling*/
 /* Dropdown container Styling**/
-.custom-dropdown {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 20px;
+.dropdown {
+  position: relative; 
+  display: inline-block; 
 }
 
 .dropdown-button {
-  cursor: pointer;
-  font-size: 17px;
-  width: 100%;
-  border-radius: 0;
-  border: 0;
-  background: transparent;
-  color: #333;
-  padding-left: 0;
-  text-align: left;
+  background-color: #697565; 
+  color: black; 
+  font-size: 16px; 
+  border: none; 
+  border-radius: 15px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
 }
 
 .dropdown-button:hover {
-  background: transparent;
-  color: black;
+  background-color: #333; 
 }
 
-.dropdown-options {
-  display: none;
-  position: absolute;
-  color: #333;
-  background-color: #f3f3f3;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  border-top-left-radius: 0;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
+.dropdown-content {
+  display: none; 
+  position: absolute; 
+  background-color: white; 
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
   z-index: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  opacity: 0; 
+  transition: opacity 0.3s ease, transform 0.2s ease; 
+  transform: translateY(-10px);
 }
 
-.dropdown-options li {
-  border-radius: 20px;
-  border-top-left-radius: 0;
-  padding: 10px;
-  cursor: pointer;
+.dropdown-content.active {
+  display: block; 
+  opacity: 1; 
+  transform: translateY(0); 
 }
 
-.dropdown-options li:hover {
-  background-color: #697565;
-  color: black;
+.dropdown-content a {
+  display: block; 
+  padding: 10px 15px; 
+  color: black; 
+  text-decoration: none; 
+  transition: background-color 0.2s; 
 }
 
-.custom-dropdown.active .dropdown-options {
-  display: block;
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
 }
 
-/* Submit Button Styling */
-.submit-button-box {
-  float: right;
+
+/* Dropdown/Submit Button Styling */
+.dropdown-submit-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 530px;
+  padding-top: 10px;
 }
   
 /* Form Submit Button */
