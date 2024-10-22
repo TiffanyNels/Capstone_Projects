@@ -43,9 +43,10 @@ const Post = mongoose.model('Post', postSchema);
 
 // Submit Post Route
 app.post('/submit-post', (req, res) => {
+
   
   const isFeatured = req.body.isFeatured ? true : false;
-
+  console.log("PORP: ", req.body)
   const newPost = new Post({
     title: req.body.title,
     content: req.body.content,

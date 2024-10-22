@@ -27,29 +27,29 @@
       <input class="form-input" type="text" id="author" name="author" placeholder="Author" required><br>
     </div>
 
-    <textarea class="text-box" name="text-box" rows="20" placeholder="Start typing..." required></textarea><br>
+    <textarea class="text-box" name="content" rows="20" placeholder="Start typing..." required></textarea><br>
 
     <div class="isFeatured-button">
       <label class="isFeatured-label">Feature this post?</label><br>
       <label class="switch" name="isFeatured">
         <input type="checkbox" name="isFeatured">
         <span class="slider"></span>
-      </label><br>
+      </label>
     </div>
 
-    <div class="custom-dropdown">
-      <button class="dropdown-button">Select a category</button>
-      <ul class="dropdown-options">
-        <li data-value="Programming">Programming</li>
-        <li data-value="Technology">Technology</li>
-        <li data-value="Tutorials">Tutorials</li>
-        <li data-value="Reviews">Reviews</li>
-      </ul>
-    </div>    
+    <div class="dropdown-submit-buttons">
+      <button type="button" class="dropdown-button">Select a category</button>
+      <div class="dropdown-content">
+          <a href="#" data-value="Option 1">Programming</a>
+          <a href="#" data-value="Option 2">Technology</a>
+          <a href="#" data-value="Option 3">Tutorials</a>
+          <a href="#" data-value="Option 4">Reviews</a>
+        </div>
 
     <div class="submit-button-box">
     <button class="submit-button" type="submit">Submit Post</button>
   </div>
+</div>
   </form>
 </div>
 </div>
@@ -72,33 +72,37 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      let currentIndex = 0;
-      const featuredPosts = document.querySelectorAll(".featured-post");
-      const totalPosts = featuredPosts.length;
+        let currentIndex = 0;
+        const featuredPosts = document.querySelectorAll(".featured-post");
+        const totalPosts = featuredPosts.length;
   
-      const dropdownButton = document.querySelector('.dropdown-button');
-      const dropdown = document.querySelector('.custom-dropdown');
+        const dropdownButton = document.querySelector('.dropdown-button');
+        const dropdown = document.querySelector('.custom-dropdown');
 
-      function showNextPost() {
-        featuredPosts[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % totalPosts;
-        featuredPosts[currentIndex].classList.add('active');
-      }
+        function showNextPost() {
+            featuredPosts[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % totalPosts;
+            featuredPosts[currentIndex].classList.add('active');
+        }
 
-      setInterval(showNextPost, 10000);
+        setInterval(showNextPost, 10000);
   
-      dropdownButton.addEventListener('click', function () {
-        dropdown.classList.toggle('active');
-      });
-  
-      document.querySelectorAll('.dropdown-options li').forEach(function (option) {
-        option.addEventListener('click', function () {
-          dropdownButton.textContent = this.textContent;
-          dropdown.classList.remove('active');
+        dropdownButton.addEventListener('click', function () {
+            dropdown.classList.toggle('active');
         });
-      });
+  
+        document.querySelectorAll('.dropdown-options li').forEach(function (option) {
+            option.addEventListener('click', function () {
+                dropdownButton.textContent = this.textContent;
+                dropdown.classList.remove('active');
+                
+                const selectedValue = this.getAttribute('data-value');
+                console.log("Selected value:", selectedValue);
+            });
+        });
     });
-  </script> 
+</script>
+
     
 </main>
 
