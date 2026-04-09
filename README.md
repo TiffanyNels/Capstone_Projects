@@ -1,28 +1,26 @@
-# Digital Dive - Mock Social Media Website
-Simple social media website created with JavaScript, EJS, CSS and MongoDB.
+# Digital Dive | Full-Stack Tech Community Platform
 
-## Table of Contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Features](#features)
-* [Status](#status)
+Digital Dive is a mock social media platform designed for the tech community to share insights, discuss industry trends, and discover curated content. This capstone project showcases the integration of **Server-Side Rendering (SSR)**, NoSQL database management, and interactive user interfaces.
 
-## General info
-This capstone project is a mock social media platform designed to encourage discussions and content sharing within the tech community. It serves as a hub for users to share insights, and discover related content, with a focus on seamless user experience.
+## Full-Stack Tech Stack
+- **Frontend:** EJS (Embedded JavaScript Templates), CSS3 (Custom Grid & Flexbox layouts)
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (Atlas)
+- **State Management:** Express Session & Middleware logic
+- **Version Control:** Git & GitHub
 
-## Technologies
-Project is created with:
-* Javasript
-* EJS
-* CSS
-* MongoDB 
+## Core Functionalities
+- **Dynamic Content Management:** Full CRUD (Create, Read, Update, Delete) capabilities for tech articles.
+- **Intelligent Categorization:** Automated organization of posts into specific tech genres for optimized navigation.
+- **Featured Feed:** A priority-based display algorithm to highlight trending or significant tech discussions.
+- **Responsive Design:** A mobile-first UI ensuring a seamless experience across all screen sizes.
 
-## Features
-* Users can post articles about the tech industry.
-* Articles can be deleted or edited.
-* Featured posts are displayed prominently on the home page.
-* Latest posts are highlighted for quick access.
-* Posts are categorized into organized genres for easy navigation.
+## Architectural Highlights
+- **Server-Side Rendering:** Utilized EJS to deliver dynamic HTML, reducing client-side processing and improving SEO.
+- **Schema Design:** Implemented flexible MongoDB schemas to handle evolving content types and user interactions.
+- **Middleware Integration:** Secure handling of data flows and request processing within the Express pipeline.
 
-## Status
-The capstone project is currently in progress, with ongoing development focused on completing the user interface and refining the frontend functionality.
+## Installation & Setup
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/TiffanyNels/Capstone_Projects.git](https://github.com/TiffanyNels/Capstone_Projects.git)
